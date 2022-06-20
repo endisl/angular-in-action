@@ -7,7 +7,7 @@
                 {{ stock?.lastTradePriceOnly | currency:'USD':'symbol':'.2' }} <br />
 
                 {{ stock?.change | currency:'USD':'symbol':'.2' }}
-                {{ stock?.changeInPercent | percent:'.2' }}
+                ({{ stock?.changeInPercent | percent:'.2' }})
             </h4>
         </div>
     </span>
