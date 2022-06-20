@@ -1,15 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'summary',
   templateUrl: './summary.component.html',
   styleUrls: ['./summary.component.css']
 })
-export class SummaryComponent implements OnInit {
+export class SummaryComponent {
+  @Input() stock: any;
 
-  constructor() { }
-
-  ngOnInit(): void {
+  isNegative() {
+    return (this.stock && this.stock.change < 0);
   }
 
+  isPositive() {
+    return (this.stock && this.stock.change > 0);
+  }
 }
