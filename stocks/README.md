@@ -1,6 +1,6 @@
 # Stocks
 
-![Screenshot](angular-in-action/stocks/src/assets/images/stocks.png)  
+![Screenshot](src/assets/images/stocks.png)  
 200622 01h30
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.3.
