@@ -1,15 +1,35 @@
 <div class="container mt-2">
-    <div class="card card-block">
+    <div class="card card-body">
         <nav class="navbar navbar-dark bg-dark mb-1">
-            <h1 class="navbar-brand mb-0" style="color: white">Overall Metrics</h1>
+            <h1 class="navbar-brand mb-0">Overall Metrics</h1>
         </nav>
-        <div class="row">
-            <metric class="col-sm-6" [used]="cpu.used" [available]="cpu.available" [title]="'CPU'"
-                [description]="'utilization of CPU cores'">
+        <div class=" row">
+            <metric class="col-sm-6" [used]="cpu.used" [available]="cpu.available">
+                <metric-title>CPU</metric-title>
+                <metric-description>utilization of CPU cores</metric-description>
             </metric>
-            <metric class="col-sm-6" [used]="mem.used" [available]="mem.available" [title]="'Memory'"
-                [description]="'utilization of memory in GB'">
+            <metric class="col-sm-6" [used]="mem.used" [available]="mem.available">
+                <metric-title>Memory</metric-title>
+                <metric-description>utilization of memory in GB</metric-description>
             </metric>
         </div>
+    </div>
+</div>
+
+<div class="container mt-2">
+    <div class="card card-body">
+        <nav class="navbar navbar-dark bg-dark mb-1">
+            <h1 class="navbar-brand mb-0">Cluster1</h1>
+        </nav>
+        <table nodes class="table table-hover">
+            <tr nodes-row *ngFor="let node of cluster1" [node]="node"></tr>
+        </table>
+
+        <nav class="navbar navbar-dark bg-dark mb-1">
+            <h1 class="navbar-brand mb-0">Cluster2</h1>
+        </nav>
+        <table nodes class="table table-hover">
+            <tr nodes-row *ngFor="let node of cluster2" [node]="node"></tr>
+        </table>
     </div>
 </div>

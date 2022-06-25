@@ -7,8 +7,8 @@ import { Component, Input } from '@angular/core';
 })
 
 export class MetricComponent {
-  @Input() title: string = '';
-  @Input() description: string ='';
+  // @Input() title: string = '';
+  // @Input() description: string ='';
   private _value: number = 0;
   private _max: number = 100;
 
