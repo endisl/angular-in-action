@@ -1,15 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent {
+  @Output() onRefresh: EventEmitter<null> = new EventEmitter<null>();
 
-  constructor() { }
-
-  ngOnInit(): void {
+  refresh() {
+    this.onRefresh.emit();
   }
-
 }
