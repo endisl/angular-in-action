@@ -1,10 +1,11 @@
-import { Component, Input, ChangeDetectionStrategy, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy, OnChanges, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'metric',
   templateUrl: './metric.component.html',
   styleUrls: ['./metric.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None
 })
 
 export class MetricComponent implements OnChanges {  
