@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Data, Users } from './data';
+import { Data, Forum, Users } from './data';
 
 @Injectable()
 export class ForumsService {

@@ -9,10 +9,16 @@ import { Forum } from '../services/data';
   styleUrls: ['./forum.component.css']
 })
 export class ForumComponent implements OnInit {
-  forum: Forum;
+  forum: Forum | undefined;
 
-  constructor(private forumsService: ForumsService) { }
+  constructor(private forumsService: ForumsService,
+    private route: ActivatedRoute,
+    private router: Router) { }
 
-  ngOnInit() {}
-
+  ngOnInit() {
+    this.route.params.subscribe((params: Params) => {
+      this.forum = this.forumsService.forum(params['forum_alias']);
+      if (!this.forum) this.router.navigate(['/not-found']);
+    });
+  }
 }
