@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { AlertService } from './alert.service';
 import { LocalStorageService } from './local-storage.service';
 import { Stock } from './stocks.model';
 
@@ -7,7 +8,8 @@ const defaultBalance: number = 10000;
 @Injectable()
 export class AccountService {
 
-    constructor(private localStorageService: LocalStorageService) {}
+    constructor(private localStorageService: LocalStorageService,
+        private alertService: AlertService) {}
 
     private _balance: number = defaultBalance;
     private _cost: number = 0;
@@ -28,9 +30,13 @@ export class AccountService {
             stock.change = 0;
             this._stocks.push(stock);
             this.calculateValue();
-            this.cacheValues();
-        }
+            this.cacheValues();            
+            this.alertService.alert(`You bought ${stock.symbol} for $${stock.price}`, 'success');
+        } else {
+            this.alertService.alert(`You have insufficient funds to buy ${stock.symbol}`, 'danger');
+        }  
     }
+    
 
     sell(index: number): void {
         let stock = this.stocks[index];
@@ -39,9 +45,13 @@ export class AccountService {
             this._stocks.splice(index, 1);
             this._cost = this.debit(stock.cost, this.cost);                        
             this.calculateValue();
-            this.cacheValues();
-        }
+            this.cacheValues();            
+            this.alertService.alert(`You sold ${stock.symbol} for $${stock.price}`, 'success');
+        } else {
+            this.alertService.alert(`You do not own the ${stock['symbol']} stock`, 'danger');
+        } 
     }
+    
 
     init() {
         this._stocks = this.localStorageService.get('stocks', []);

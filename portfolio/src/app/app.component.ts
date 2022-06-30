@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { AccountService } from './services/account.service';
+import { AlertService } from './services/alert.service';
 import { Stock } from './services/stocks.model';
 import { StocksService } from './services/stocks.service';
 
@@ -14,7 +15,9 @@ export class AppComponent implements OnInit, OnDestroy {
   stocks: Stock[] = [];
   interval: any;
 
-  constructor(private _accountService: AccountService, private stocksService: StocksService) { }
+  constructor(private _accountService: AccountService, 
+    private stocksService: StocksService,
+    private alertService: AlertService) { }
 
   ngOnInit(): void {
     this.accountService.init();
@@ -29,6 +32,8 @@ export class AppComponent implements OnInit, OnDestroy {
 
   toggleRefresh(): void {
     this.refresh = !this.refresh;
+    let onOff = (this.refresh) ? 'on' : 'off';
+    this.alertService.alert(`You have turned automatic refresh ${onOff}`, 'info');
   }
 
   ngOnDestroy(): void {
@@ -37,6 +42,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
   reset(): void {
     this._accountService.reset();
+    this.alertService.alert('You have reset your portfolio!');
   }
 
   get accountService() {return this._accountService; }
