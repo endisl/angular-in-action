@@ -41,5 +41,5 @@ testem.log
 .DS_Store
 Thumbs.db
 
-# ndion_added
-/src/app/forums/services/data.ts
+# ndion
+src/app/forums/services/data.ts

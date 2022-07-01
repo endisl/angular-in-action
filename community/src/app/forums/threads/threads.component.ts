@@ -9,9 +9,19 @@ import { Thread } from '../services/data';
   styleUrls: ['./threads.component.css']
 })
 export class ThreadsComponent implements OnInit {
-  threads: Thread[];
+  threads: Thread[] | undefined;
 
-  constructor() { }
+  constructor(private forumsService: ForumsService, private route: ActivatedRoute) { }
 
-  ngOnInit() {}
+  /* ngOnInit() {
+     this.route.params.subscribe((params: Params) => {
+       this.threads = this.forumsService.forum(params['forum_alias'])?.threads;
+     })
+  }*/
+
+  ngOnInit() {
+    this.route.params.subscribe((params: Params) => {
+      this.threads = this.forumsService.threads(params['forum_alias']);
+    })
+  }
 }

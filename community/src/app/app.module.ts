@@ -16,6 +16,8 @@ import { RouterModule, Routes } from '@angular/router';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
+  { path: 'users', component: ChatListComponent, outlet: 'chat' },
+  { path: 'users/:username', component: ChatComponent, outlet: 'chat' },
   { path: '', redirectTo: '/forums', pathMatch: 'full' },
   { path: '**', component: NotFoundComponent }
 ];
