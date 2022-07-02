@@ -43,3 +43,4 @@ Thumbs.db
 
 # ndion
 src/app/forums/services/data.ts
+src/app/blogs/services/data.ts
