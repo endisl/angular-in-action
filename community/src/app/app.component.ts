@@ -14,7 +14,7 @@ import { UserService } from './services/user.service';
 export class AppComponent {
   loggedIn: boolean = false;
 
-  constructor(private userService: UserService) {}
+  constructor(public userService: UserService) {}
 
   logout() {
     this.userService.logout();
