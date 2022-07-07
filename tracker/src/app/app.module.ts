@@ -7,11 +7,6 @@ import { UsersService } from './services/users.service';
 import { FollowersComponent } from './components/followers/followers.component';
 import { FollowingComponent } from './components/following/following.component';
 
-let service: string = 'https://api.github.com/users/endisl/followers';
-
-export interface UsersInterface {
-
-}
 
 @NgModule({
   declarations: [
