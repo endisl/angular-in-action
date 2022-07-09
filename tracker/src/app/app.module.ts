@@ -4,15 +4,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UsersService } from './services/users.service';
-import { FollowersComponent } from './components/followers/followers.component';
-import { FollowingComponent } from './components/following/following.component';
+import { SummaryComponent } from './components/summary/summary.component';
+
 
 
 @NgModule({
   declarations: [
-    AppComponent,
-    FollowersComponent,
-    FollowingComponent
+    AppComponent,    
+    SummaryComponent
   ],
   imports: [
     BrowserModule,

@@ -38,7 +38,7 @@ export class UsersService {
   }
 
   loadFollowing() {
-    this.http.get<UserInterface[]>(followingApi);          
+    return this.http.get<UserInterface[]>(followingApi);          
   }
 
 
