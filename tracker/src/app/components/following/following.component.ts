@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./following.component.css']
 })
 export class FollowingComponent implements OnInit {
+  following: any[];
+
 
   constructor() { }
 
