@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-let followersApi: string = 'https://api.github.com/users/endisl/followers';
-let followingApi: string = 'https://api.github.com/users/endisl/following'
+let followersApi: string = 'https://api.github.com/users/endisl/followers?per_page=100';
+let followingApi: string = 'https://api.github.com/users/endisl/following?per_page=100';
 
 export interface UserInterface {
   login: string;
@@ -29,19 +29,15 @@ export interface UserInterface {
   providedIn: 'root'
 })
 export class UsersService {
+  
     
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   loadFollowers() {
-    return this.http.get<UserInterface[]>(followersApi);          
+    return this.http.get<UserInterface[]>(followersApi);
   }
 
   loadFollowing() {
-    return this.http.get<UserInterface[]>(followingApi);          
-  }
-
-
-  //arr1 - arr2
-  //difference = this.arr1.filter(x => !this.arr2.includes(x)); 
+    return this.http.get<UserInterface[]>(followingApi);
+  }  
 }
