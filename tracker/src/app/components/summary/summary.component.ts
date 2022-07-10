@@ -8,20 +8,23 @@ import { UserInterface, UsersService } from 'src/app/services/users.service';
 })
 export class SummaryComponent implements OnInit {
   followers: UserInterface[] = [];
-  following: UserInterface[] = [];
-  followersLog: string[] = [];
-  followingLog: string[] = [];
+  following: UserInterface[] = [];  
    
   constructor(private service: UsersService) {}
  
-  get baniama(): string[] {   
+  get baniama(): string[] {  
+    let followersLog: string[] = [];
+    let followingLog: string[] = [];
+
     for (let i = 0; i < this.followers.length; i++) {      
-      this.followersLog[i] = this.followers[i].login;
+      followersLog[i] = this.followers[i].login;
     }
+
     for (let i = 0; i < this.following.length; i++) {
-      this.followingLog[i] = this.following[i].login;
+      followingLog[i] = this.following[i].login;
     }
-    return this.followingLog.filter(x => !this.followersLog.includes(x)); 
+
+    return followingLog.filter(x => !followersLog.includes(x)); 
   }
 
   ngOnInit(): void {
